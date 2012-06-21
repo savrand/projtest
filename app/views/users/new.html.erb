@@ -1,0 +1,51 @@
+<% if !current_user %>
+<h1>Регистрация</h1>
+<%= form_for  @user,  :html => { :multipart => true } do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :Логин %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :Имя %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :Фамилия %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :Дата_рождения %><br />
+    <%= f.text_field :byrthday %>
+  </p>
+  <p>
+    <%= f.label :Телефон %><br />
+    <%= f.text_field :phone_number %>
+  </p>
+  <p>
+    <%= f.label :пароль %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :Подтверждение_пароля %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+   <%= f.file_field :avatar %>
+  <p class="button"><%= f.submit %></p>
+<% end %>
+<% end %>
+
+

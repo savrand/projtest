@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projtest</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+   <div id="container">
+   <div id="header"><ul>
+      <% if current_user %>
+       <%= link_to "Главная", user_path %>
+       <%= link_to "Личный кабинет", private_office_user_path(@user)%>
+       <%= link_to "Выйти", log_out_path %>
+      <% else %>
+       <%= link_to "Регистрация", sign_up_path %> or
+       <%= link_to "Войти", log_in_path %>
+      <% end %>
+          </ul></div>
+
+   <div id="content">
+   </div>
+
+  <div id="footer">&copy; Дмитрий С.</div>
+  </div>
+<%= yield %>
+</body>
+</html>

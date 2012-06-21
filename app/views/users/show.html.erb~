@@ -1,0 +1,9 @@
+<div id="content">
+<% if current_user %>
+    <%= image_tag current_user.avatar.url(:thumb) %></br>
+    Пользователь: <%= current_user.name %><%= current_user.lastname.first %>.</br>
+    Почта:<%= current_user.email%></br>
+    Дата рождения:<%= current_user.byrthday%></br>
+<% end %>    
+</div>
+

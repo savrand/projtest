@@ -1,0 +1,31 @@
+<% if current_user %>
+    Пользователь: <%= current_user.name %><%= current_user.lastname.first %>.</br>
+    <%= form_for @user do |f| %>
+  <p>
+    <%= f.label :Имя %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :Фамилия %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+   <p>
+    <%= f.label :Дата_рождения %><br />
+    <%= f.text_field :byrthday %>
+  </p>
+  <p>
+    <%= f.label :Телефон %><br />
+    <%= f.text_field :phone_number %>
+  </p>
+  <p>
+   <%= f.file_field :avatar %>
+  </p>
+  <p class="button"><%= f.submit "Изменить"%></p>
+<% end %> 
+<%= button_to "Удалить", @user, :method=>:delete,:confirm => "Вы уверены?", :class=>:destroy %>
+
+<% end %>
